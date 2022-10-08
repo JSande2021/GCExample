@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate.html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpdateItemPage</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css"th:href="@{/assets/css/MainStyle.css}" />
+</head>
+<body style="background-color: #3F4045">
+	<div layout:fragment="content">
+		<div class="editItem">
+	<form action="#" th:action="@{/myItems}" th:method="get">
+		<!-- <input type="hidden" name="_method" value="edit" /> -->
+		<button type="submit" style="border-radius: 50px" id="submitButton" class="glow-on-hover">Back</button>
+	</form>
+	<div class="container">
+		<h1 align="center" style="color: white">Item Management System</h1>
+		<hr>
+		<h2 align="center" style="color: white">Update Item Information</h2> 
+
+		<form action="#" th:action="@{/myItems/updateItem/{id}}" th:object="${Item}" method="post">
+			<br> <input required type="hidden" th:field="${Item.id}" name="id" class="form-control mb-4"> 
+				<input required type="text" th:field="${Item.name}" name="name" placeholder="Item Name" class="form-control mb-4"> 
+				<input required type="text" th:field="${Item.price}" name="price" placeholder="Item Price" class="form-control mb-4"> 
+				<input required type="text" th:field="${Item.description}" name="description" placeholder="Item Description" class="form-control mb-4"> 
+				<p align="center">
+				<button type="submit" class="glow-on-hover">Update</button>
+			</p>
+		</form>
+	</div>
+	</div>
+	</div>
+</body>
+</html>

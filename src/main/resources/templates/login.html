@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate.html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css"th:href="@{/assets/css/MainStyle.css}" />
+</head>
+<div layout:fragment="content">
+	<div class="login">
+<body style="background-color: #3F4045">
+	<h1 align="center" style="color: white">Sign In</h1>
+	<hr/>
+	<br>
+	<br> 
+	<form th:action="@{myItems}" th:object="${user}" method="post">
+		<h2 align="center" th:if="${invalidCredentials}" class="error" style="color: red">Invalid
+			Credentials</h2>
+		<h2 align="center">
+			<input type="text" placeholder="username" size="50" id="userName" name="userName" />
+		</h2>
+		<h2 align="center">
+			<input type="text" placeholder="password" size="50" id="userPassword" name="userPassword" />
+		</h2>
+
+		<br />
+		<div th:if="${param.error}">
+			<p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+		</div>
+		<p align="center">
+			<button type="submit" class="glow-on-hover">Log In</button>
+		</p>
+	</form>
+	</div>
+</div>
+</body>
+</html>

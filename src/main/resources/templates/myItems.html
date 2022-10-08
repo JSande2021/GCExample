@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate.html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ItemPage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css"th:href="@{/assets/css/MainStyle.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="myItems">
+			
+			<h1> Items </h1>
+
+			<div align="left">
+				<!--Dropdown to select order that items are displayed (not functionally implemented) -->
+				<div class="form-group">
+<!-- 					<label for="selections">Order By</label>
+					<select class="form-control selectpicker">
+						<option value="">Order By</option>
+						<option value=""> Combat Power </option>
+						<option value="">Alphabetically</option>
+						<option value="">Size</option>
+						<option value="">Type</option>
+					</select> -->
+
+					<!--Create new Item Button (opens create item modal)-->
+						<form th:action="@{/myItems/newItem}" th:method="get">
+							<button type="submit" id="submitButton" class="glow-on-hover">Add</button>
+						</form>
+				</div>
+			</div>
+
+	<div class="datatable" align="center">
+		
+		<!-- Table containing all Item information-->
+		<table class="table table-dark">
+			<thead>
+				<tr>
+					<th scope="col">Edit</th>
+					<th scope="col">Name</th>
+					<th scope="col">Price</th>
+					<th scope="col">Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="Item: ${Items}">
+
+					<td>
+						<form action="#" th:action="@{/myItems/edit(id=${Item.id})}" th:method="post">
+							<input type="hidden" name="_method" value="edit" />
+							<button type="submit" id="submitButton" class="glow-on-hover">Edit</button>
+						</form>
+					</td>
+					<td th:text="${Item.name}">name</td>
+					<td th:text="${Item.price}">price</td>
+					<td th:text="${Item.description}">description</td>
+					<td>
+						<form th:action="@{/myItems/delete(id=${Item.id})}" th:method="delete">
+							<button type="submit" id="submitButton" class="glow-on-hover">Delete</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		</div> 
+		</div>
+</body>
+</html>

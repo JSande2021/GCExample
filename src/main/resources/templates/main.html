@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate.html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainPage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css"th:href="@{/assets/css/MainStyle.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- Logo for the site -->
+		<!-- <p><img src="images/pcb-title.png" /></p> -->
+<br/>
+		<!-- Container for the create deck and browse panels -->
+		<div class="container" align="center">
+			<!--Center container block to align the create deck and browse panels-->
+			<div class="center-block">
+				<!--Row that contains the create deck and browse panels-->
+				<div class="row">
+
+					<!--Browse panel-->
+					<div  class="col-xs-12 col-sm-6">
+						<div class="panel panel-default">
+							<div class="panel-heading" align="center" style="font-weight: bold;">Browse Items</div>
+							<div class="panel-body">
+								<a type="button" class="btn" href="/main"></a>
+								<div class="image">
+                                <img src="/images/EldenRing.png" class="image"/> <!--Retrieved from https://wallpapersden.com/tag/elden-ring-wallpapers/ -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

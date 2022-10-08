@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate.html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewUserPage</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css"th:href="@{/assets/css/MainStyle.css}" />
+</head>
+<body style="background-color: #3F4045">
+	<form action="#" th:action="@{/login}" th:method="get">
+		<input type="hidden" name="_method" value="edit" />
+		<button type="submit" style="border-radius: 50px" id="submitButton"
+			class="glow-on-hover">Back</button>
+	</form>
+
+	<div class="container" align="center">
+
+		<h1 align="center" style="color: white">User Management System</h1>
+		<hr>
+		<h2 align="center" style="color: white">Create New User</h2>
+
+		<form action="#" th:action="@{/login/saveUser}"
+			th:object="${User}" method="POST">
+			
+				<input required type="text" th:field="*{userName}" name="userName" placeholder="User Name" class="form-control mb-4"> 
+				<input required type="text" th:field="*{userPassword}" name="userPassword" placeholder="User Password" class="form-control mb-4"> 
+	
+			<button type="submit" class="glow-on-hover">Save</button>
+		</form>
+	</div>
+</body>
+</html>
