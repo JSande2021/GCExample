@@ -1,2 +1,2 @@
-# cloudcomputinggoogle
- Cloud Computing Google Application Example
+# Google Cloud Application
+ Google Application Example
